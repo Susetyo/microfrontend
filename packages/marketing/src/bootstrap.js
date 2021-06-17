@@ -1,15 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {createMemoryHistory} from "history"
 import App from './App';
 
-// Mount function to start up the app
-const mount = (el) => { 
-    console.log("TESTaaa",el)
-  ReactDOM.render(<App />, el);
+// IKI MOUNT COMPONENT E
+const mount = (el, param) => { 
+  const history = createMemoryHistory();
+  console.log("CROT NAVIGATE",param)
+  if(param){
+    history.listen(param.onNavigate);
+  }
+
+  ReactDOM.render(<App history={history} />, el);
+
+  return{
+    onParentNavigate({pathname:nextPathName}){
+      console.log("CROT NAVIGATE FROM PARENT",nextPathName);
+      const { pathname } = history.location;
+      console.log("CROT NAVIGATE FROM pathName",pathname);
+      if(pathname !== nextPathName){
+        history.push(nextPathName)
+      }
+
+    }
+  }
 };
 
-// If we are in development and in isolation,
-// call mount immediately
+// JIKA MODE DEVELOPMENT DAN ISOLATION
 if (process.env.NODE_ENV === 'development') {
   const devRoot = document.querySelector('#_marketing-dev-root');
   
@@ -18,6 +35,4 @@ if (process.env.NODE_ENV === 'development') {
   }
 }
 
-// We are running through container
-// and we should export the mount function
 export { mount };
