@@ -5,8 +5,10 @@ import App from './App';
 
 // IKI MOUNT COMPONENT E
 const mount = (el, param) => { 
-  const history = param.defaultHistory || createMemoryHistory();
-  if(param){
+  const history = param.defaultHistory || createMemoryHistory({
+    initialEntries: [param.initialPath]
+  });
+  if(param && param.onNavigate){
     history.listen(param.onNavigate);
   }
 
