@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import {StylesProvider, createGenerateClassName} from '@material-ui/core/styles';
 
 const MarketingAppLazy = lazy(()=> import('./components/MarketingApp'));
-// const AuthAppLazy = lazy(()=>import('./components/AuthApp')); temporarry
+const AuthAppLazy = lazy(()=>import('./components/AuthApp'));
 
 
 
@@ -22,9 +22,9 @@ export default () => {
                     <Header isSignedIn={isSignedIn} onSignOut={()=> setIsSignedIn(false)} />
                     <Suspense fallback={<Progress />}>
                         <Switch>
-                            {/* <Route path="/auth">
+                            <Route path="/auth">
                                 <AuthAppLazy onSignIn={()=> setIsSignedIn(true)} />
-                            </Route> */}
+                            </Route>
                             <Route path="/" component={MarketingAppLazy} />
                         </Switch>
                     </Suspense>
