@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import {StylesProvider, createGenerateClassName} from '@material-ui/core/styles';
 
 const MarketingAppLazy = lazy(()=> import('./components/MarketingApp'));
-// const AuthAppLazy = lazy(()=>import('./components/AuthApp'));
+// const AuthAppLazy = lazy(()=>import('./components/AuthApp')); temporarry
 
 
 
