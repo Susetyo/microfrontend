@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import {createMemoryHistory, createBrowserHistory} from "history"
 import App from './App';
 
-// IKI MOUNT COMPONENT E
 const mount = (el, param) => { 
   const history = param.defaultHistory || createMemoryHistory({
     initialEntries: [param.initialPath]
@@ -25,7 +24,6 @@ const mount = (el, param) => {
   }
 };
 
-// JIKA MODE DEVELOPMENT DAN ISOLATION
 if (process.env.NODE_ENV === 'development') {
   const devRoot = document.querySelector('#_marketing-dev-root');
   
