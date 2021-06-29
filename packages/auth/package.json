@@ -2,7 +2,12 @@
   "name": "auth",
   "version": "1.0.0",
   "scripts": {
+<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1"
+=======
+    "start": "webpack serve --config config/webpack.dev.js",
+    "build": "webpack --config config/webpack.prod.js"
+>>>>>>> d64f5751e8d29782f729e66ddbbbaf3b66174ca3
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
